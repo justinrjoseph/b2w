@@ -9,41 +9,56 @@
  * @package Bootstrap_to_WordPress
  */
 
-?><!DOCTYPE html>
+?>
+
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-<head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="profile" href="http://gmpg.org/xfn/11">
+	<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
 
-<?php wp_head(); ?>
-</head>
+	<?php wp_head(); ?>
+	</head>
 
-<body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'b2w' ); ?></a>
+	<body <?php body_class(); ?>>
+		<div id="page" class="site">
+			<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'b2w' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<?php
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
+			<!-- HEADER 
+			=========================================================== -->		
+			<header class="site-header" role="banner">
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
+				<!-- NAVBAR 
+				=========================================================== -->
+				<div class="navbar-wrapper">
+					<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+						<div class="container">
+							<div class="navbar-header">
+								<button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+									<span class="sr-only">Toggle Navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'b2w' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+								<a href="/" class="navbar-brand"><img src="assets/img/logo.png" alt="Bootstrap to WordPress"></a>
+							</div><!-- /.navbar-header -->
 
-	<div id="content" class="site-content">
+							<!-- If the WP admin menu is not activated, then the 'menu_class' is applie to 'container.' In other words, it overwrites the 'container_class' Ref: http://wordpress.org/support/topic/wp_nav_menu-menu_class-usage-bug -->
+							<?php
+
+								wp_nav_menu( array(
+									'theme_location' 	=> 'primary',
+									'container' 			=> 'nav',
+									'container_class' => 'navbar-collapse collapse',
+									'menu_class' 			=> 'nav navbar-nav navbar-right'
+								) );
+
+							?>
+							
+						</div><!-- /.container -->
+					</div><!-- /.navbar navbar-inverse navbar-fixed-top -->
+				</div><!-- /.navbar-wrapper -->
+
+			</header>
