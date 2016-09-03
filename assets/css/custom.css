@@ -107,7 +107,7 @@ img {
 	padding: 0;
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
-	-ms-morder-radius: 50px;
+	-ms-border-radius: 50px;
 	border-radius: 50px;
 }
 
@@ -226,8 +226,38 @@ section h2 {
 	margin: 20px 0 40px;
 }
 
+#primary {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
 section h3 {
 	margin: 30px 0 10px;
+}
+
+.feature-image {
+	display: table;
+	width: 100%;
+}
+
+.feature-image-default {
+	background: url(../img/stuff-feature.jpg) no-repeat fixed;
+}
+
+.feature-image-default-alt {
+	background: url(../img/hipster-stuff.jpg) no-repeat fixed;
+}
+
+.feature-image-default,
+.feature-image-default-alt {
+	background-size: cover;
+}
+
+.feature-image h1 {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: white;
 }
 
 #opt-in {
@@ -284,7 +314,7 @@ section h3 {
 	background: #dd5638;
 	-webkit-border-radius: 100%;
 	-moz-border-radius: 100%;
-	-ms-morder-radius: 100%;
+	-ms-border-radius: 100%;
 	border-radius: 100%;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizelegibility;
@@ -312,7 +342,7 @@ section h3 {
 .testimonial img {
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
-	-ms-morder-radius: 50%;
+	-ms-border-radius: 50%;
 	border-radius: 50%;
 }
 
@@ -361,6 +391,89 @@ footer li.signup-link a {
 
 footer li.signup-link a:hover {
 	font-weight: bold;
+}
+
+/* === BLOG === */
+
+.post {
+	position: relative;
+	border: 1px solid #ddd;
+	background-color: white;
+	margin: 0 0 40px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.post header,
+.post .post-excerpt {
+	padding: 20px;
+}
+
+.post header h1,
+.post header h3 {
+	margin: 0 0 15px;
+	padding: 0 0 15px;
+	border-bottom: 1px solid #ddd;
+}
+
+.post header h1 {
+	font-size: 1.5rem;
+}
+
+.post-image {
+	height: auto;
+}
+
+.post-details {
+	font-size: .75rem;
+	width: 90%;
+}
+
+.post-details i.fa {
+	padding-left: 10px;
+}
+
+.post-details i.fa:first-child {
+	padding: 0;
+}
+
+/* === COMMENTS === */
+
+.post-comments-badge {
+	height: 70px;
+	width: 70px;
+	position: absolute;
+	top: 25px;
+	right: 20px;
+	border: none;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	-ms-border-radius: 100%;
+	border-radius: 100%;
+	background-color: #79b044;
+	text-align: center;
+	display: table;
+}
+
+.post-comments-badge a {
+	display: table-cell;
+	vertical-align: middle;
+	color: white;
+	font-size: 1.25rem;
+	line-height: 20px;
+}
+
+.post-comments-badge i.fa {
+	display: block;
+	font-size: .9375rem;
+	padding: 0;
+	margin-bottom: 4px;
+}
+
+.post-comments-badge:hover {
+	background-color: #8bc653;
 }
 
 /* === SPRITES === */
