@@ -19,46 +19,49 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+
+	<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries  -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
 	</head>
 
 	<body <?php body_class(); ?>>
-		<div id="page" class="site">
-			<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'b2w' ); ?></a>
+		<!-- HEADER 
+		=========================================================== -->		
+		<header class="site-header" role="banner">
 
-			<!-- HEADER 
-			=========================================================== -->		
-			<header class="site-header" role="banner">
+			<!-- NAVBAR 
+			=========================================================== -->
+			<div class="navbar-wrapper">
+				<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+								<span class="sr-only">Toggle Navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
 
-				<!-- NAVBAR 
-				=========================================================== -->
-				<div class="navbar-wrapper">
-					<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-						<div class="container">
-							<div class="navbar-header">
-								<button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
-									<span class="sr-only">Toggle Navigation</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
+							<a href="/" class="navbar-brand"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/img/logo.png" alt="Bootstrap to WordPress"></a>
+						</div><!-- /.navbar-header -->
 
-								<a href="/" class="navbar-brand"><img src="assets/img/logo.png" alt="Bootstrap to WordPress"></a>
-							</div><!-- /.navbar-header -->
+						<!-- If the WP admin menu is not activated, then the 'menu_class' is applie to 'container.' In other words, it overwrites the 'container_class' Ref: http://wordpress.org/support/topic/wp_nav_menu-menu_class-usage-bug -->
+						<?php
 
-							<!-- If the WP admin menu is not activated, then the 'menu_class' is applie to 'container.' In other words, it overwrites the 'container_class' Ref: http://wordpress.org/support/topic/wp_nav_menu-menu_class-usage-bug -->
-							<?php
+							wp_nav_menu( array(
+								'theme_location' 	=> 'primary',
+								'container' 			=> 'nav',
+								'container_class' => 'navbar-collapse collapse',
+								'menu_class' 			=> 'nav navbar-nav navbar-right'
+							) );
 
-								wp_nav_menu( array(
-									'theme_location' 	=> 'primary',
-									'container' 			=> 'nav',
-									'container_class' => 'navbar-collapse collapse',
-									'menu_class' 			=> 'nav navbar-nav navbar-right'
-								) );
+						?>
 
-							?>
-							
-						</div><!-- /.container -->
-					</div><!-- /.navbar navbar-inverse navbar-fixed-top -->
-				</div><!-- /.navbar-wrapper -->
+					</div><!-- /.container -->
+				</div><!-- /.navbar navbar-inverse navbar-fixed-top -->
+			</div><!-- /.navbar-wrapper -->
 
-			</header>
+		</header>
