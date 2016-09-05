@@ -987,6 +987,10 @@ button[type=submit]:hover {
 	background-color: #aaa;
 }
 
+input[type=submit].search-submit {
+	display: none;
+}
+
 /* === SPRITES === */
 
 .ci {
