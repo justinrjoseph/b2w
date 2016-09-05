@@ -13,6 +13,15 @@ $call_to_action = get_post_meta( 7, 'call_to_action', true );
 $cta_benefit = get_post_meta( 7, 'cta_benefit', true );
 $cta_btn_txt = get_post_meta( 7, 'cta_btn_txt', true );
 
+// Advanced custom fields
+$income_feature_image = get_field('income_feature_image');
+$income_section_title = get_field('income_section_title');
+$income_section_description = get_field('income_section_description');
+$reason_1_title = get_field('reason_1_title');
+$reason_1_description = get_field('reason_1_description');
+$reason_2_title = get_field('reason_2_title');
+$reason_2_description = get_field('reason_2_description');
+
 get_header(); ?>
 
 		<!-- HERO 
@@ -87,25 +96,27 @@ get_header(); ?>
 			<div class="container">
 				
 				<div class="section-header">
-					<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/icon-boost.png" alt="Chart">
-					<h2>How You Can Boost Your Income</h2>
+					<?php if ( !empty($income_feature_image) ) : ?>
+					<img src="<?php echo $income_feature_image['url']; ?>" alt="<?php echo $income_feature_image['alt']; ?>">
+					<?php endif; ?>
+					<h2><?php echo $income_section_title; ?></h2>
 				</div><!-- /.section-header -->
 
 				<p class="lead">
-					Whether you&rsquo;re a freelance designer, entrepreneur, employee, code hobbyist, or looking for a new career &mdash; this course gives you an immensely valuable skill that will enable you to either:
+					<?php echo $income_section_description; ?>
 				</p><!-- /.lead -->
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h3>Make money on the side</h3>
+						<h3><?php echo $reason_1_title; ?></h3>
 						<p>
-							So you can save up for that Hawaiian vacation you&rsquo;ve been wanting, help pay off your debt, car, mortgage, or simply just have bonus cash lying around.
+							<?php echo $reason_1_description; ?>
 						</p>
 					</div><!-- /.col-sm-6 -->
 					<div class="col-sm-6">
-						<h3>Create a full-time income</h3>
+						<h3><?php echo $reason_2_title; ?></h3>
 						<p>
-							WordPress developers have options. Many developers make a generous living by creating custom WordPress themes and selling them on websites like ThemeForest. Freelance designers and developers can also take on WordPress projects and make an extra $1,000 - $5,000 per month.
+							<?php echo $reason_2_description; ?>
 						</p>
 					</div><!-- /.col-sm-6 -->
 				</div><!-- /.row -->
