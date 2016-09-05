@@ -45,7 +45,7 @@
 							<li><a href="blog.html">Blog</a></li>
 							<li><a href="resources.html">Resources</a></li>
 							<li><a href="contact.html">Contact</a></li>
-							<li class="signup-link"><a href="#">Sign up now</a></li>
+							<li class="signup-link"><a href="http://bradhussey.ca">Sign up now</a></li>
 						</ul><!-- /.list-unstyled list-inline -->
 					</nav>
 				</div><!-- /.col-sm-6 -->
