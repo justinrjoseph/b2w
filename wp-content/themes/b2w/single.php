@@ -9,22 +9,32 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<!-- MAIN CONTENT 
+	=========================================================== -->
+	<div class="container">
+		<div class="row" id="primary">
 
-		<?php while ( have_posts() ) : the_post(); ?>
+			<main id="content" class="col-sm-8">
 
-		<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-		
-		<?php if ( comments_open() || get_comments_number() ) : ?>
-		<?php comments_template(); ?>
-		<?php endif; ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php endwhile; ?>
+			<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+			
+			<?php if ( comments_open() || get_comments_number() ) : ?>
+			<?php comments_template(); ?>
+			<?php endif; ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+			<?php endwhile; ?>
 
-<?php
-get_sidebar();
-get_footer();
+			</main><!-- #main -->
+
+			<!-- SIDEBAR 
+			=========================================================== -->
+			<aside class="col-sm-4">
+				<?php get_sidebar(); ?>
+			</aside><!-- /.col-sm-4 -->
+			
+		</div><!-- #primary -->
+	</div><!-- /.container -->
+
+<?php get_footer(); ?>
