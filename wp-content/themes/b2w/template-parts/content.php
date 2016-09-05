@@ -12,9 +12,9 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php if ( is_single() ) : ?>
-			<?php the_title( '<h3 class="entry-title">', '</h1>' ); ?>
+			<?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
 		<?php else : ?>
-			<?php the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+			<?php the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
 		<?php endif; ?>
 
 		<?php if ( 'post' === get_post_type() ) : ?>
@@ -24,14 +24,13 @@
 			<i class="fa fa-clock-o"></i> <time><?php the_date(); ?></time>
 			<i class="fa fa-folder"></i> <?php the_category( ', ' ); ?>
 			<i class="fa fa-tags"></i> <?php the_tags(); ?>
+			<?php edit_post_link( 'Edit', '<i class="fa fa-pencil"></i> ' ); ?>
 
 			<div class="post-comments-badge">
 				<a href="<?php comments_link(); ?>">
 					<i class="fa fa-comments"></i> <?php comments_number( 0, 1, '%' ); ?>
 				</a>
 			</div><!-- /.post-comments-badge -->
-
-			<?php edit_post_link( 'Edit', '<i class="fa fa-pencil"></i>' ); ?>
 		</div><!-- /.post-details -->
 
 		<?php endif; ?>
@@ -45,7 +44,13 @@
 	</div><!-- /.post-image -->
 	<?php endif; ?>
 
+	<?php if ( is_single() ) : ?>
+	<div class="post-body">
+		<?php the_content(); ?>
+	</div><!-- /.post-body -->
+	<?php else : ?>
 	<div class="post-excerpt">
 		<?php the_excerpt(); ?>
 	</div><!-- /.post-excerpt -->
+	<?php endif ?>
 </article><!-- #post-## -->
