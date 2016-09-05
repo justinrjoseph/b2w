@@ -30,6 +30,9 @@ $features_section_image = get_field('features_section_image');
 $features_section_title = get_field('features_section_title');
 $features_section_body = get_field('features_section_body');
 
+$project_section_title = get_field('project_section_title');
+$project_section_description = get_field('project_section_description');
+
 get_header(); ?>
 
 		<!-- HERO 
@@ -192,7 +195,7 @@ get_header(); ?>
 					</div><!-- /.col-sm-2 -->
 
 					<?php endwhile; ?>
-					
+
 				</div><!-- /.row -->
 
 			</div><!-- /.container -->
@@ -203,31 +206,35 @@ get_header(); ?>
 		<section id="project-features">
 			<div class="container">
 				
-				<h2>Final Project Features</h2>
+				<h2><?php echo $project_section_title; ?></h2>
 				<p class="lead">
-					In this course, you build an incredibly beautiful website. Want to see what <strong>you</strong> are building? <em>You're looking at it!</em> The website you're using right now is the website you&rsquo;ll have built entirely by yourself by the end of this course.
+					<?php echo $project_section_description; ?>
 				</p><!-- /.lead -->
 
 				<div class="row">
+
+					<?php 
+
+						$loop = new WP_Query( array(
+							'post_type' => 'project_feature',
+							'orderby' 	=> 'post_id',
+							'order' 		=> 'ASC'
+						) );
+
+					?>
+
+					<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
+
 					<div class="col-sm-4">
-						<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/icon-design.png" alt="Design">
-						<h3>Sexy &amp; Modern Design</h3>
-						<p>You get to work with a modern, professional-quality design &amp; layout.</p>
+						<?php if ( has_post_thumbnail() ) : ?>
+							<?php the_post_thumbnail(); ?>
+						<?php endif; ?>
+						<h3><?php the_title(); ?></h3>
+						<p><?php the_content(); ?></p>
 					</div><!-- /.col-sm-4 -->
 
-					<div class="col-sm-4">
-						<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/icon-code.png" alt="Code">
-						<h3>Quality HTML5 &amp; CSS3</h3>
-						<p>You&rsquo;ll learn how to hand-craft a stunning website with valid, semantic, and beautiful HTML5 &amp; CSS3.</p>
-					</div
+					<?php endwhile; ?>
 
-					<div class="col-sm-4">
-						<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/icon-design.png" alt="Design">
-						<h3>Easy-to-use CMS</h3>
-						<p>
-							Allow your clients to easily update their websites by converting your static files into dynamic templates that hook in to the WordPress API.
-						</p>
-					</div>
 				</div><!-- /.row -->
 
 			</div><!-- /.container -->
