@@ -39,19 +39,21 @@
 				</div><!-- /.col-sm-3 -->
 
 				<div class="col-sm-6">
-					<nav>
-						<ul class="list-unstyled list-inline">
-							<li><a href="/">Home</a></li>
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="resources.html">Resources</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<li class="signup-link"><a href="http://bradhussey.ca">Sign up now</a></li>
-						</ul><!-- /.list-unstyled list-inline -->
-					</nav>
+
+					<?php
+
+						wp_nav_menu( array( 
+							'theme_location' => 'footer',
+							'container' => 'nav',
+							'menu_class' => 'list-unstyled list-inline'
+						) );
+
+					?>
+					
 				</div><!-- /.col-sm-6 -->
 
 				<div class="col-sm-3">
-					<p class="pull-right">&copy; 2016 Justin Joseph</p><!-- /.pull-right -->
+					<p class="pull-right"><?php bloginfo( 'title' ); ?> &copy; <?php echo date('Y'); ?> <?php the_author_link(); ?></p><!-- /.pull-right -->
 				</div><!-- /.col-sm-3 -->
 			</div><!-- /.container -->
 		</footer>
