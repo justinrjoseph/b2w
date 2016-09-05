@@ -33,7 +33,7 @@
 				<div class="col-sm-3">
 					<p>
 						<a href="/">
-							<img src="assets/img/logo.png" alt="Bootstrap to WordPress" />
+							<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/logo.png" alt="Bootstrap to WordPress" />
 						</a>
 					</p>
 				</div><!-- /.col-sm-3 -->
