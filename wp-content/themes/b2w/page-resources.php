@@ -64,6 +64,7 @@ $banner_url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
 
 							<?php endwhile; ?>
 						</div><!-- /.resource-row clearfix -->
+
 					</section><!-- /.main-content -->
 
 				</div><!-- /#content.col-sm-12 -->
